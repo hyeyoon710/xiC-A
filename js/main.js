@@ -24,3 +24,19 @@ const swiper = new Swiper('.main_swiper',{
     clickable: true,
   }
 })
+
+window.addEventListener('load', () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.img_wrap img', {
+    transformOrigin: 'center center',
+    scrollTrigger : {
+      trigger : 'img',
+      start : 'top top',
+      // end : 'bottom top',
+      pin : true,
+      scrub : true,
+      markers: true,
+    }
+  })
+})

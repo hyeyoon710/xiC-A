@@ -67,10 +67,24 @@ header .sns_wrapper .sns_wrap {display: flex;gap: 5px;}
 #content section h2 {font-size: 24px;font-weight: bold;color: var(--main-color);}
 #content section strong {font-size: 42px;font-weight: bold;font-family: 'pretendard';}
 
-#content .visual {padding: 180px 0;}
+#content .visual {overflow: hidden;padding: 180px 0;}
 #content .visual .txt_box  {max-width: 1400px;margin: 0 auto;margin-bottom: 50px;}
 #content .visual strong {font-size: 32px;font-weight: bold;}
 #content .visual strong>span {color: var(--main-color);}
+
+@keyframes bgWidth {
+  100% {width: 0;}
+}
+#content .img_wrap {position: relative;width: 1920px;height: 440px;}
+#content .img_wrap .img_bg_left {position: absolute;left: 0;width: 970px;height: 440px;background: gold;animation: bgWidth 2s forwards;}
+#content .img_wrap .img_bg_right {position: absolute;right: 0;width: 970px;height: 440px;background: red;}
+
+#content .img_wrap .visual img {
+  position: relative;height: 100%;
+  animation: imgWidth 3s forwards;
+  /* left: 50%; */
+  /* transform: translateX(-50%) scale(0.8); */
+}
 
 #content .Company_wrap {height: 100%;margin-bottom: 180px;}
 #content .Company_wrap h2 {margin-bottom: 20px;}
