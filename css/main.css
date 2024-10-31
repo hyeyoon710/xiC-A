@@ -8,9 +8,10 @@
   display: block;overflow: hidden;
   width: 0;height: 0;
 }
-body {font-family: "pretendard";overflow-x: hidden;}
+body {font-family: "pretendard";}
 button {cursor: pointer;}
 p {color: #222;}
+img {object-fit: cover;}
 
 /* Head */
 header.on {border-bottom: 1px solid #ccc;background: #fff;color: #333;}
@@ -72,19 +73,14 @@ header .sns_wrapper .sns_wrap {display: flex;gap: 5px;}
 #content .visual strong {font-size: 32px;font-weight: bold;}
 #content .visual strong>span {color: var(--main-color);}
 
-@keyframes bgWidth {
-  100% {width: 0;}
-}
-#content .img_wrap {position: relative;width: 1920px;height: 440px;}
-#content .img_wrap .img_bg_left {position: absolute;left: 0;width: 970px;height: 440px;background: gold;animation: bgWidth 2s forwards;}
+/* #content .img_wrap {position: relative;width: 1920px;height: 440px;}
+#content .img_wrap .img_bg_left {position: absolute;left: 0;width: 970px;height: 440px;background: gold;}
 #content .img_wrap .img_bg_right {position: absolute;right: 0;width: 970px;height: 440px;background: red;}
 
 #content .img_wrap .visual img {
   position: relative;height: 100%;
   animation: imgWidth 3s forwards;
-  /* left: 50%; */
-  /* transform: translateX(-50%) scale(0.8); */
-}
+} */
 
 #content .Company_wrap {height: 100%;margin-bottom: 180px;}
 #content .Company_wrap h2 {margin-bottom: 20px;}
@@ -112,14 +108,22 @@ display: flex;justify-content: space-between;align-items: center;
 #content .Expertise_wrap .ex_txt strong {font-size: 32px;font-weight: 700;}
 
 #content .performance_wrap {margin-bottom: 180px;position: relative;}
-#content .performance_wrap .main_swiper .swiper_txt {position: absolute;top: 50%;right: 300px;transform: translateY(-50%);color: #fff;}
+#content .performance_wrap .main_swiper .swiper_txt {
+  position: absolute;top: 50%;right: 200px;transform: translateY(-50%);
+  width: 500px;color: #fff;
+}
 #content .performance_wrap .main_swiper .swiper_txt h2 {margin-bottom: 20px;font-size: 20px;color: inherit;}
 #content .performance_wrap .main_swiper .swiper_txt strong {font-size: 48px;}
 #content .performance_wrap .main_swiper .swiper_txt p {font-size: 20px;line-height: 1.5;margin-top: 20px;color: #fff;}
-#content .performance_wrap .main_swiper .swiper_txt button {margin-top: 40px;border: 2px solid #fff;padding: 20px 20px;border-radius: 40px;}
-#content .performance_wrap .swiper-pagination {position: absolute;width: 1000px; top: 50%;right: -600px; transform: translateY(-50%);border: 1px solid red;}
-#content .performance_wrap .swiper-pagination span {width: 12px;height: 12px;background: none;border: 1px solid #fff;}
-
+#content .performance_wrap .main_swiper .swiper_txt button {margin-top: 40px;border: 2px solid #fff;padding: 17px 27px;border-radius: 40px;}
+#content .performance_wrap .swiper-pagination {
+  position: absolute;top: 250px;width: 500px;
+  margin-left: 1050px;
+}
+#content .performance_wrap .swiper-pagination span {width: 12px;height: 12px;background: rgba(0, 0, 0, 0);border: 2px solid #fff;margin-left: 10px;}
+#content .performance_wrap .swiper-pagination .swiper-pagination-bullet-active {
+  background: #fff;
+}
 #content .Career_wrap {margin-bottom: 180px;}
 #content .Career_wrap h2 {margin-bottom: 20px;}
 #content .Career_wrap .career_top {display: flex;justify-content: space-between;align-items: center;}
@@ -135,18 +139,8 @@ display: flex;justify-content: space-between;align-items: center;
 #content .Career_wrap dl dd {color:#616161;font-size: 18px;}
 
 #content .Career_wrap .people_list {display: flex;position: relative;margin-top: 60px;gap: 60px;}
-#content .Career_wrap .people_01 {position: relative;}
-#content .Career_wrap .people_01 .txt_box {position: absolute;left: 30px;bottom: 50px;margin-bottom: 20px;}
-#content .Career_wrap .people_01 .txt_box .cname {font-size: 24px;font-weight: 600;margin-bottom: 20px;color: #fff;}
-#content .Career_wrap .people_01 .txt_box .cname span {font-size: 18px;font-weight: 400;margin-left: 10px;}
-#content .Career_wrap .people_01 .txt_box .txt {font-size: 24px;font-weight: 700;color: #fff;}
-#content .Career_wrap .people_01 .txt_box .circle {border: 2px solid #fff;width: 60px;height: 60px;}
+#content .Career_wrap .people_01 .bg {background: url(../image/list_people01.jpg) center no-repeat;width: 100%;height: 100%;}
 
-#content .Career_wrap .people_02 {position: relative;}
-#content .Career_wrap .people_02 .txt_box {position: absolute;left: 30px;bottom: 50px;color: #fff;margin-bottom: 20px;}
-#content .Career_wrap .people_02 .txt_box .cname {font-size: 24px;font-weight: 600;margin-bottom: 20px;}
-#content .Career_wrap .people_02 .txt_box .cname span {font-size: 18px;font-weight: 400;margin-left: 10px;}
-#content .Career_wrap .people_02 .txt_box .txt {font-size: 24px;font-weight: 700;}
 
 
 #content .News_wrap {margin-bottom: 180px;}
