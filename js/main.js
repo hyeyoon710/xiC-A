@@ -44,18 +44,29 @@ $(window).on('scroll', function() {
   }
 });
 
-// window.addEventListener('load', () => {
-//   gsap.registerPlugin(ScrollTrigger);
 
-//   gsap.to('.img_wrap img', {
-//     transformOrigin: 'center center',
-//     scrollTrigger : {
-//       trigger : 'img',
-//       start : 'top top',
-//       // end : 'bottom top',
-//       pin : true,
-//       scrub : true,
-//       markers: true,
-//     }
-//   })
-// })
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ani1 = gsap.timeline()
+
+  ani1.from('.txt_box .s1', {yPercent : -100})
+      .from('.txt_box .s2', {yPercent : -100})
+
+  ScrollTrigger.create({
+    animation : ani1,
+    trigger: '.visual',
+    start : 'top 50%',
+    // markers: true,
+  })
+
+  gsap.from('.img_wrap', {
+    width : 0,
+
+    scrollTrigger : {
+      trigger : '.visual',
+      start : 'top 50%',
+      // end : 'bottom top',
+      scrub : true,
+      // markers: true,
+    }
+  })
