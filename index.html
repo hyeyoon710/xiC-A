@@ -22,7 +22,7 @@
 <div id="wrap">
 	<header>
 		<div class="header_left">
-			<h1><a href="https://www.xicna.com/kr/index"><span class="screen_out">자이C&A</span></a></h1>
+			<h1><a href="index.html"><span class="screen_out">자이C&A</span></a></h1>
 			<nav>
 				<ul id="gnb">
 					<li><a href="#">기업소개</a>
@@ -111,8 +111,8 @@
 		<div class="header_right">
 			<div class="util">
 				<ul>
-					<li><a href="#">KR</a></li>
-					<li><a href="#">EN</a></li>
+					<li class="l1"><a href="#">KR</a></li>
+					<li class="l2"><a href="#">EN</a></li>
 				</ul>
 				<button class="btn_util"><img src="image/icon_search_white.svg" alt=""></button>
 			</div>
@@ -133,21 +133,49 @@
 	</header>
 	<main id="content">
 		<div class="main_visual">
-			<video src="image/main.mp4" autoplay muted loop></video>
+			<div class="main_swiper">
+				<div class="swipper-wrapper">
+					<div class="swiper-slide">
+						<video class="v1" src="image/main1.mp4" autoplay muted loop></video>
+					</div>
+				</div>
+				<div class="swipper-wrapper">
+					<div class="swiper-slide">
+						<video class="v2" src="image/main2.mp4" autoplay muted loop></video>
+					</div>
+				</div>
+				<div class="swipper-wrapper">
+					<div class="swiper-slide">
+						<video class="v3" src="image/main3.mp4" autoplay muted loop></video>
+					</div>
+				</div>
+			</div>
 			<div class="main_txt_wrapper">
 				<div class="inner">
 					<div class="pagination_wrapper">
-						<div class="page1">
-							<strong>THINK.</strong>
-							<span>기대를 넘어 감동을 실현합니다.</span>
+						<div class="paging">
+							<div class="main_txt">
+								<strong>THINK.</strong>
+							</div>
+							<div class="sub_txt">
+								<span>기대를 넘어 감동을 실현합니다.</span>
+							</div>
 						</div>
-						<div class="page2">
-							<strong>SOLVE.</strong>
-							<span>최고의 파트너로 함께합니다.</span>
+						<div class="paging">
+							<div class="main_txt">
+								<strong>SOLVE.</strong>
+							</div>
+							<div class="sub_txt">
+								<span>최고의 파트너로 함께합니다.</span>
+							</div>
 						</div>
-						<div class="page3">
-							<strong>INNOVATE.</strong>
-							<span>더 나은 공간의 가치를 창출합니다.</span>
+						<div class="paging">
+							<div class="main_txt">
+								<strong>INNOVATE.</strong>
+							</div>
+							<div class="sub_txt">
+								<span>더 나은 공간의 가치를 창출합니다.</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -162,7 +190,7 @@
 				<img src="image/company_visual.jpg" alt="">
 			</div>
 		</div>
-		<section class="Company_wrap">
+		<section class="company_wrap">
 			<div class="inner">
 				<h2>Company</h2>
 				<strong>GLOBAL TOP TIER TECHNOLOGY</strong>
@@ -192,7 +220,7 @@
 				</ul>
 			</div>
 		</section>
-		<section class="Expertise_wrap">
+		<section class="expertise_wrap">
 			<div class="inner">
 				<div class="ex_bg">
 					<div class="ex_txt">
@@ -282,7 +310,7 @@
 			</div>
 			<div class="swiper-pagination"></div>
 		</section>
-		<section class="Career_wrap">
+		<section class="career_wrap">
 			<div class="inner">
 				<h2>Career</h2>
 				<div class="career_top">
@@ -327,7 +355,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="News_wrap">
+		<section class="news_wrap">
 			<div class="inner">
 				<h2>NEWS</h2>
 				<div class="news_top">
@@ -362,7 +390,7 @@
 							</div>
 							<div class="text_area">
 								<span>기사</span>
-								<p>잘 키운 자회사 덕 보는 GS건설... 위기 때 실적‘도움’</p>
+								<p>잘 키운 자회사 덕 보는 GS건설... 위기 때 실적 ‘도움’</p>
 								<span class="date">2023.08.25</span>
 							</div>
 						</a></li>
@@ -409,7 +437,6 @@
 					<li><a href="#">개인정보처리방침</a></li>
 					<li><a href="#">이메일무단수집거부</a></li>
 					<li><a href="#">사이버신문고 </a></li>
-					<!-- 마지막 li에 after 요소 없애는 법 모르겠음 -->
 				</ul>
 				<div class="f_adress">
 					<address>서울특별시 강서구 마곡중앙로 150</address>
