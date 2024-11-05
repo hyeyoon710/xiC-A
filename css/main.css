@@ -69,7 +69,7 @@ header .sns_wrapper .sns_link p {font-size: 14px; font-weight: 600;color: #61616
 header .sns_wrapper .sns_wrap {display: flex;gap: 5px;}
 
 /* Main */
-/* .main_visual {overflow: hidden;top: 0;left: 0;right: 0;height: 100vh;}
+.main_visual {overflow: hidden;top: 0;left: 0;right: 0;height: 100vh;}
 .main_visual .main_txt_wrapper {position: relative;bottom: 600px;left: 230px;z-index: 10;}
 .main_visual .main_txt_wrapper .pagination_wrapper {
   position: absolute;color: #fff;font-weight: bold;
@@ -82,54 +82,20 @@ header .sns_wrapper .sns_wrap {display: flex;gap: 5px;}
   margin-right: 20px;font-size: 100px;color: rgba(0,0,0,0);
   vertical-align: middle;-webkit-text-stroke: 2px #fff;
 }
-.main_visual .main_txt_wrapper .pagination_wrapper span {font-size: 24px;font-weight: 600;} */
-
-.main_visual {
-  overflow: hidden;
-  position: relative;
-  height: 100vh;
+.main_visual .main_txt_wrapper .pagination_wrapper span {font-size: 24px;font-weight: 600;}
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.main_visual .main_txt_wrapper {
-  position: absolute;
-  bottom: 100px; /* 화면 하단에서의 위치 조정 */
-  left: 50px;    /* 화면 왼쪽에서의 위치 조정 */
-  z-index: 10;   /* 다른 요소보다 위에 배치 */
-}
-
-.main_visual .main_txt_wrapper .pagination_wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* 요소 간격 추가 */
-  color: #fff;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.5); /* 임시 배경색 추가하여 위치 확인 */
-  padding: 20px; /* 가시성 확보 위한 여백 */
-  max-width: 90vw;
-  z-index: 10; /* Swiper 위에 표시 */
-}
-
-.main_visual .main_txt_wrapper .pagination_wrapper .paging {
-  display: flex;
-  align-items: center;
-}
-
-.main_visual .main_txt_wrapper .pagination_wrapper .paging .sub_txt {
-  align-items: center;
-}
-
-.main_visual .main_txt_wrapper .pagination_wrapper strong {
-  font-size: 100px;
-  color: #fff; /* 텍스트 색상 */
-  -webkit-text-stroke: 2px #fff; /* 외곽선 */
-  margin-right: 20px;
-  vertical-align: middle;
-}
-
-.main_visual .main_txt_wrapper .pagination_wrapper span {
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff; /* 텍스트 색상 */
+/* 애니메이션을 실행할 때 사용하는 클래스 */
+.slide-up {
+  animation: slide-up 1s ease forwards;
 }
 
 section .inner {max-width: 1440px;margin: auto;}

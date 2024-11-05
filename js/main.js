@@ -74,18 +74,22 @@ $(document).ready(function() {
   cycleVideos();
 });
 
-// const mainswiper = new Swiper ('.main_visual .main_swiper', {
-//   effect: 'fade',
-//   speed: 2000,
-//   loop: true,
+function updateSubTextVisibility(index) {
+  // 모든 sub_txt의 span에서 slide-up 클래스 제거하고 display를 none으로 설정
+  document.querySelectorAll('.paging .sub_txt span').forEach((el) => {
+    el.style.display = 'none';
+    el.classList.remove('slide-up'); // 이전에 추가된 애니메이션 클래스 제거
+  });
 
-//   autoplay: {
-//     delay: 3000,
-//     disableOnInteraction: false, // 사용자가 클릭해도 자동 재생 유지
-//   },
+  // 현재 슬라이드 인덱스에 해당하는 sub_txt span을 보이고 slide-up 클래스를 추가
+  const activeSubTxtSpan = document.querySelectorAll('.paging')[index].querySelector('.sub_txt span');
+  if (activeSubTxtSpan) {
+    activeSubTxtSpan.style.display = 'block'; // 텍스트 표시
+    activeSubTxtSpan.classList.add('slide-up'); // 애니메이션 클래스 추가
+  }
+}
 
-// });
-
+// Swiper 설정에 이벤트 연결
 const mainswiper = new Swiper('.main_visual .main_swiper', {
   effect: 'fade',
   speed: 2000,
@@ -94,33 +98,19 @@ const mainswiper = new Swiper('.main_visual .main_swiper', {
     delay: 3000,
     disableOnInteraction: false,
   },
-  pagination: {
-    el: '.pagination_wrapper',
-    clickable: true,
-  },
   on: {
-    slideChange: function () {
-      // 모든 sub_txt를 숨김 처리
-      document.querySelectorAll('.paging .sub_txt').forEach((el) => {
-        el.style.display = 'none';
-      });
-
-      // 현재 슬라이드 인덱스를 기준으로 해당 sub_txt만 표시
-      const activeIndex = this.realIndex;
-      const activeSubTxt = document.querySelectorAll('.paging')[activeIndex].querySelector('.sub_txt');
-      if (activeSubTxt) {
-        activeSubTxt.style.display = 'flex';
-      }
+    init: function () { // 초기 로드 시 첫 번째 슬라이드의 sub_txt만 표시
+      updateSubTextVisibility(this.realIndex);
+    },
+    slideChange: function () { // 현재 슬라이드 인덱스를 기준으로 sub_txt 업데이트
+      updateSubTextVisibility(this.realIndex);
     },
   },
 });
 
-// 초기 페이지 로드 시 첫 번째 슬라이드에 해당하는 sub_txt만 표시
+// 초기 페이지 로드 시 첫 번째 슬라이드의 텍스트에 애니메이션 적용
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.paging .sub_txt').forEach((el) => {
-    el.style.display = 'none';
-  });
-  document.querySelector('.paging .sub_txt').style.display = 'flex';
+  updateSubTextVisibility(0);
 });
 
 
