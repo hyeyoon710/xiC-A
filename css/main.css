@@ -18,7 +18,7 @@ header {
   display: flex;justify-content: space-between;
   position: absolute;left: 0;right: 0;
   height: 110px;color: #fff;
-  padding: 0 60px; z-index: 1;
+  padding: 0 60px;z-index: 10;
   transition: all 0.5s linear;
 }
 header.fixed {
@@ -69,21 +69,68 @@ header .sns_wrapper .sns_link p {font-size: 14px; font-weight: 600;color: #61616
 header .sns_wrapper .sns_wrap {display: flex;gap: 5px;}
 
 /* Main */
-.main_visual {overflow: hidden;position: relative;top: 0;left: 0;right: 0;height: 100vh;}
-.main_visual .v1 {z-index: 1;}
-.main_visual .page2>span , .page3>span {display: none;}
-
-.main_visual .main_txt_wrapper {position: absolute;bottom: 490px;left: 230px;}
+/* .main_visual {overflow: hidden;top: 0;left: 0;right: 0;height: 100vh;}
+.main_visual .main_txt_wrapper {position: relative;bottom: 600px;left: 230px;z-index: 10;}
 .main_visual .main_txt_wrapper .pagination_wrapper {
-  display: flex;flex-direction: column;align-items: flex-start;
   position: absolute;color: #fff;font-weight: bold;
-  width: 1440px;
+
 }
+.main_visual .main_txt_wrapper .pagination_wrapper .paging {display: flex;}
+.main_visual .main_txt_wrapper .pagination_wrapper .paging .sub_txt {display: flex;align-items: center;}
+
 .main_visual .main_txt_wrapper .pagination_wrapper strong {
   margin-right: 20px;font-size: 100px;color: rgba(0,0,0,0);
   vertical-align: middle;-webkit-text-stroke: 2px #fff;
 }
-.main_visual .main_txt_wrapper .pagination_wrapper span {font-size: 24px;font-weight: 600;}
+.main_visual .main_txt_wrapper .pagination_wrapper span {font-size: 24px;font-weight: 600;} */
+
+.main_visual {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.main_visual .main_txt_wrapper {
+  position: absolute;
+  bottom: 100px; /* 화면 하단에서의 위치 조정 */
+  left: 50px;    /* 화면 왼쪽에서의 위치 조정 */
+  z-index: 10;   /* 다른 요소보다 위에 배치 */
+}
+
+.main_visual .main_txt_wrapper .pagination_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 요소 간격 추가 */
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* 임시 배경색 추가하여 위치 확인 */
+  padding: 20px; /* 가시성 확보 위한 여백 */
+  max-width: 90vw;
+  z-index: 10; /* Swiper 위에 표시 */
+}
+
+.main_visual .main_txt_wrapper .pagination_wrapper .paging {
+  display: flex;
+  align-items: center;
+}
+
+.main_visual .main_txt_wrapper .pagination_wrapper .paging .sub_txt {
+  align-items: center;
+}
+
+.main_visual .main_txt_wrapper .pagination_wrapper strong {
+  font-size: 100px;
+  color: #fff; /* 텍스트 색상 */
+  -webkit-text-stroke: 2px #fff; /* 외곽선 */
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.main_visual .main_txt_wrapper .pagination_wrapper span {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff; /* 텍스트 색상 */
+}
 
 section .inner {max-width: 1440px;margin: auto;}
 section h2 {font-size: 24px;font-weight: bold;color: var(--main-color);}

@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 $(window).on('scroll', function() {
   let currentScrollTop = $(this).scrollTop(); // 현재 스크롤 위치
 
@@ -17,7 +19,6 @@ $(window).on('scroll', function() {
       $('header').removeClass('fixed').slideDown();
   }
     lastScrollTop = currentScrollTop; // 이전 스크롤 위치 업데이트
-
   })
 
   $('.util .l1').click(function() {
@@ -52,11 +53,9 @@ $(document).ready(function() {
   const totalVideos = 3; // 총 비디오 개수
 
   function showVideoAndText(videoNum) {
-      // 모든 비디오와 텍스트 초기화
       $('.main_visual video').css('z-index', 0); // 비디오 숨기기
       $('.pagination_wrapper>span').hide(); // 모든 텍스트 숨기기
 
-      // 현재 비디오와 텍스트 보이기
       $(`.main_visual .v${videoNum}`).css('z-index', 1); // 비디오 보이기
       $(`.pagination_wrapper .page${videoNum}`).fadeIn(); // 관련 텍스트 보이기
   }
@@ -75,8 +74,57 @@ $(document).ready(function() {
   cycleVideos();
 });
 
-gsap.registerPlugin(ScrollTrigger);
-const swiper = new Swiper('.main_swiper', {
+// const mainswiper = new Swiper ('.main_visual .main_swiper', {
+//   effect: 'fade',
+//   speed: 2000,
+//   loop: true,
+
+//   autoplay: {
+//     delay: 3000,
+//     disableOnInteraction: false, // 사용자가 클릭해도 자동 재생 유지
+//   },
+
+// });
+
+const mainswiper = new Swiper('.main_visual .main_swiper', {
+  effect: 'fade',
+  speed: 2000,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.pagination_wrapper',
+    clickable: true,
+  },
+  on: {
+    slideChange: function () {
+      // 모든 sub_txt를 숨김 처리
+      document.querySelectorAll('.paging .sub_txt').forEach((el) => {
+        el.style.display = 'none';
+      });
+
+      // 현재 슬라이드 인덱스를 기준으로 해당 sub_txt만 표시
+      const activeIndex = this.realIndex;
+      const activeSubTxt = document.querySelectorAll('.paging')[activeIndex].querySelector('.sub_txt');
+      if (activeSubTxt) {
+        activeSubTxt.style.display = 'flex';
+      }
+    },
+  },
+});
+
+// 초기 페이지 로드 시 첫 번째 슬라이드에 해당하는 sub_txt만 표시
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.paging .sub_txt').forEach((el) => {
+    el.style.display = 'none';
+  });
+  document.querySelector('.paging .sub_txt').style.display = 'flex';
+});
+
+
+const swiper = new Swiper('.performance_wrap .main_swiper', {
   effect: 'fade',
   speed: 2000,
   loop: true,
@@ -91,21 +139,21 @@ const swiper = new Swiper('.main_swiper', {
   }
 });
 
-  const ani1 = gsap.timeline()
+const ani1 = gsap.timeline()
 
-  ani1.from('.txt_box .s1', {yPercent : -100})
-      .from('.txt_box .s2', {yPercent : -100})
+ani1.from('.txt_box .s1', {yPercent : -100})
+.from('.txt_box .s2', {yPercent : -100})
 
-  ScrollTrigger.create({
-    animation : ani1,
-    trigger: '.visual',
-    start : 'top 50%',
-    // markers: true,
-  })
+ScrollTrigger.create({
+  animation : ani1,
+  trigger: '.visual',
+  start : 'top 50%',
+  // markers: true,
+})
 
-  gsap.from('.img_wrap', {
-    width : 0,
-    scrollTrigger : {
+gsap.from('.img_wrap', {
+  width : 0,
+  scrollTrigger : {
       trigger : '.visual',
       start : 'top 50%',
       // end : 'bottom top',
