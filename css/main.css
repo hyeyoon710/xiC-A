@@ -10,7 +10,7 @@
 }
 body {font-family: "pretendard";}
 button {cursor: pointer;}
-#content {width: 100%;}
+
 
 /* Head */
 header.on {border-bottom: 1px solid #ccc;background: #fff;color: #333;}
