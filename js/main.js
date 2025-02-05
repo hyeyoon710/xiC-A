@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger);
 
 $(window).on('scroll', function() {
   let currentScrollTop = $(this).scrollTop(); // 현재 스크롤 위치
